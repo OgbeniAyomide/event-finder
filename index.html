@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- <meta http-equiv="refresh" content="10"> -->
+<title>Campus Events - Event Finder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1f68f9",
+                        "background-light": "#f8f9fc",
+                        "background-dark": "#0f1623",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        /* Custom scrollbar for better aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #334155;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-200 ">
+    <div class="relative flex min-h-screen flex-col overflow-hidden">          <!--the whole body-->
+        <header class="sticky flex w-full items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-background-light backdrop-blur-md px-8 py-3 lg:px-10">
+           
+     <div  class="flex items-center gap-8">  <!--name-->
+               <a href="index.html" class="flex items-center gap-2 text-slate-800 dark:text-white">  <!--name link-->
+               <div class="flex items-center bg-blue-700 text-white rounded-full h-12 w-12 justify-center text-2xl"> 
+                 <i class="fas fa-graduation-cap "></i>
+               </div>
+                <p class="font-bold text-2xl">Campus Events</p>
+            </a>
+     </div>
+
+     <div>   <!--search-->
+        <div class="hidden lg:block">
+    <label class="flex items-center gap-2 rounded-xl bg-slate-100 dark:bg-slate-800 px-4 py-2.5 transition-colors focus-within:ring-2 focus-within:ring-primary/50">
+        <div class="text-gray-700 text-sm">
+            <i class="fas fa-search"></i>
+        </div>
+        <input type="text" class="w-64 border-none bg-transparent p-0 text-sm font-medium text-slate-800 placeholder-slate-500 focus:ring-0 dark:text-white dark:placeholder-slate-400 search-input-header" placeholder="Search events, clubs....">
+    </label>
+        </div>
+     </div>
+
+     <div>   <!--nav links-->
+        <nav class="md:flex items-center justify-center space-x-6 hidden ">
+            <a href="index.html" class="text-blue-500 text-sm">Home</a>
+            <a href="#" class="text-gray-800 text-sm hover:text-blue-500">My events</a>
+            <a href="#" class="text-gray-800 text-sm hover:text-blue-500">Saved</a>
+           
+        </nav>
+
+     </div>
+
+     <div class="flex items-center justify-center space-x-4">  <!--Action buttons-->
+        <button class="flex items-center justify-center text-sm text-gray-500 rounded-full h-6 w-6 bg-transparent hover:bg-gray-300 relative">
+            <i class="fas fa-bell text-lg"></i>
+        </button>
+
+         <a href="login.html" class="cursor-pointer">
+            <button class="flex items-center justify-center text-sm text-gray-500 rounded-full h-6 w-6 bg-transparent hover:bg-gray-300 relative">
+            <i class="fas fa-user text-lg"></i>
+         </button> 
+         </a>
+   <button
+  id="hamburgerBtn"
+  class="relative z-50 flex md:hidden size-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700"
+  aria-expanded="false"
+>
+  <i id="hamburgerIcon" class="fa-solid fa-bars text-lg transition-transform duration-300"></i>
+</button>
+
+
+     </div>
+        </header>
+        <!-- Mobile Menu -->
+  <nav
+    id="mobileMenu"
+    class="mt-6 hidden rounded-lg bg-white p-4 shadow md:hidden"
+  >
+    <ul class="flex flex-col space-y-4 text-sm font-semibold ">
+      <li class="hover:text-xl hover:text-primary"><a href="index" class="block">Home</a></li>
+      <li class="hover:text-xl hover:text-primary"><a href="#" class="block">My Events</a></li>
+      <li class="hover:text-xl hover:text-primary"><a href="#" class="block">Saved</a></li>
+
+    </ul>
+  </nav>
+
+<main class="flex-1 px-4 py-8 md:px-8 lg:px-40 ">
+<div class="mx-auto max-w-[1200px] space-y-8">
+    <section class="relative overflow-hidden rounded-2xl bg-slate-900 shadow-xl min-h-[420px]">
+
+        <div class="absolute bg-cover bg-center inset-0" style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuARD2kK0Nn0x_i6pFjLp-2h7BJ5jOvWjsE51khgYe073toh3j4upEpntVu8C-zzLeGjr603l9kZCiYvSHmBu6f-kRpm3rkoSHUyT3VEeXJCbfuToeyf2LHE5uQyL-o8AOUJAzz_cArrh1nmkxPZ625FEbBPgEOh37OiUCu13akrH0_JEfwbFM3dlE5YCIrr1XABXZf0KbnFLiCcKDMVsDlf_Jc15D3beTHH5Yqh0QK6BXX_wKbVQLTfdyXMHpbaRxK9drqv0SNH9g')" aria-label="crowd of students dancing in a party " role="img"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+        <div class="relative min-h-[400px] flex flex-col justify-end p-8 md:p-12 lg:items-start lg:w-2/3">
+            <span class="inline-flex mb-4 items-center rounded-lg bg-primary/90 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm uppercase">Featured event</span>
+            <h1 class="mb-2  text-4xl text-white font-extrabold md:text-5xl lg:text-6xl">Homecoming Dance 2026</h1>
+            <p class="mb-8 max-w-xl text-lg font-medium text-slate-200">Don't miss the biggest event of the year! Live DJ, photo booths, and food trucks. Join us this Saturday at the Student Union.</p>
+            <div class="flex flex-wrap  gap-6">
+                <button class="inline-flex justify-center items-center rounded-xl text-white font-semibold h-12 px-8 bg-primary/80 gap-3 ">
+                    <span>Get Tickets</span>
+                    <span><i class="fas fa-arrow-right"></i></span>
+                </button>
+                      <button class="inline-flex justify-center items-center rounded-xl text-white font-semibold h-12 px-8 bg-white/10 gap-3 ">
+                    <span class="flex items-center justify-center border border-white rounded-full h-4 w-4 text-xs"><i class="fas fa-info"></i></span>
+                    <span>More Info</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="space-y-6">   <!--filter and controls-->
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <h2 class="text-2xl font-bold text-slate-900">Upcoming Events</h2>
+            <div class="flex items-center gap-3 "><!--View toggles and sort-->
+                <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Sort by:</span>
+                <select name="" id="" class="rounded-lg border-none bg-slate-100 font-bold text-sm py-2 pl-3 pr-8 text-slate-900 focus:ring-2 focus:bg-primary/50">
+                    <option value="">Popularity</option>
+                    <option value="">Newest</option>
+                    <option value="">Date</option>
+                </select>
+                <div class="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-1"></div>
+<div class="flex rounded-lg bg-slate-100 dark:bg-slate-800 p-1 ">
+    <button class="flex size-8 items-center justify-center rounded-md bg-white text-primary/50 shadow-sm">
+        <i class="fas fa-grip"></i>
+    </button>
+     <button class="flex size-8 items-center justify-center rounded-md  text-slate-500 shadow-sm bg-transparent hover:text-black">
+       <i class="fa-regular fa-calendar-days"></i>
+    </button>
+            </div>
+        </div>
+        </div>
+        <div class="flex flex-col gap-4 rounded-2xl bg-white border-slate-200 p-4 shadow-sm lg:flex-row lg:items-center"> <!--Filter Toolbar-->
+            <div class="flex flex-1 gap-4 overflow-x-auto pb-2 lg:pb-0 no-scrollbar">
+                <div class="relative min-w-[200px] flex-1">
+                     <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <input type="text" name="" id="search-input" class="h-10 w-full rounded-xl shadow-sm border-slate-200 dark:border-slate-700 focus:ring-2 focus:border-primary/50 pl-10 text-sm search-input-toolbar" placeholder="Search keywords">
+                </div>
+                <div class="relative min-w-[120px]">
+                         <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
+                            <i class="fa-regular fa-calendar"></i>
+                    </span>
+                    <input type="text" class="h-10 w-full rounded-xl border-slate-200 text-sm focus:ring-primary pl-10" placeholder="Select Date">
+                </div>
+                </div>
+                <div class="h-px w-full bg-slate-200 dark:bg-slate-700 lg:h-8 lg:w-px"></div>
+                 <div class="flex gap-2 overflow-x-auto pb-2 lg:pb-0 no-scrollbar">
+                    <button class=" filter-btn whitespace-nowrap px-4 py-2 rounded-xl bg-primary text-white text-sm font-semibold shadow-md shadow-primary/20 transition-transform hover:scale-105"data-category="all-events">All Events</button>
+                     <button class=" filter-btn whitespace-nowrap px-4 py-2 rounded-xl bg-slate-100 text-slate-600 font-semibold transition-transform hover:scale-105" data-category="academic" id="academic">Academic</button>
+
+                    <button class=" filter-btn whitespace-nowrap px-4 py-2 rounded-xl bg-slate-100 text-slate-600 font-semibold transition-transform hover:scale-105"data-category="social" id="socials">Social</button>
+                    <button class=" filter-btn whitespace-nowrap px-4 py-2 rounded-xl bg-slate-100 text-slate-600 font-semibold transition-transform hover:scale-105"data-category="sports" id="sports">Sports</button>
+                    <button class=" filter-btn whitespace-nowrap px-4 py-2 rounded-xl bg-slate-100 text-slate-600 font-semibold transition-transform hover:scale-105"data-category="arts" id="arts">Arts</button>
+                
+            </div>
+        </div>
+    </section>
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="events"><!--Grid section-->
+        <article class=" event-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 border-slate-100"
+        data-title="Intro to AI Seminar"
+        data-date="Oct 24"
+        data-time="2:00 PM - 4:00 PM"
+        data-location="Lecture Hall B"
+        data-category="academic"
+        data-host="Computer Science Society"
+        data-venue="Lecture Hall B"
+        data-about="Join us for an afternoon of innovation and technology! Learn about AI integration in modern systems from industry experts."
+        data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuDf7d0KWY1ZAnkjrFF1dPKvEEGbDrPtzLiGDdHrcZlq2_NHj-tQIoLCboHQuVNhcntYDJKafKQIsJwjgiRdn-o8gKUAZk5VAh7CrP4pXEeG6tKgi5YGXB4LVy9o392T_SGVRvwzo5FjmRyL7AH1SbJug3gY1q2bx0d1TjreYvRmXgAPckG82geWSqHQwmnKpokSfnfFi_lOb_SlT87IiVy62azHQZrWkpMf6bH9o6Q5ixcBiDGLhw0e9VlRpyi2-pRIKOGnqYiZ0g"
+>
+
+            <div class="relative h-48 w-full overflow-hidden">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" aria-label="Abstract colorful light waves background representing technology" role="img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDf7d0KWY1ZAnkjrFF1dPKvEEGbDrPtzLiGDdHrcZlq2_NHj-tQIoLCboHQuVNhcntYDJKafKQIsJwjgiRdn-o8gKUAZk5VAh7CrP4pXEeG6tKgi5YGXB4LVy9o392T_SGVRvwzo5FjmRyL7AH1SbJug3gY1q2bx0d1TjreYvRmXgAPckG82geWSqHQwmnKpokSfnfFi_lOb_SlT87IiVy62azHQZrWkpMf6bH9o6Q5ixcBiDGLhw0e9VlRpyi2-pRIKOGnqYiZ0g');" id="ai_seminar_img"></div>
+                <div class="absolute imset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute top-3 right-3 rounded-full bg-white/20 p-2 backdrop-blur-md transition-colors hover:bg-white/40 cursor-pointer">
+                   <i class="fa-regular fa-heart text-white"></i>
+                </div>
+                <span class="absolute left-3 top-3 rounded-lg bg-orange-500 px-2 py-1 text-xs font-bold uppercase text-white shadow-sm">Popular</span>
+                <div class="absolute bottom-3 left-3">
+                    <span class="bg-white/70 rounded-lg text-slate-800 font-bold text-xs shadow-sm uppercase px-2 py-1">OCT 24</span>
+                </div>
+            </div>
+            <div class="flex flex-1 flex-col p-4">
+                <div class="mb-2 flex items-center gap-2 text-xs font-medium text-slate-500" id="ai_time">
+                    <span class="text-xs"><i class="fa-regular fa-clock"></i></span>
+                    <span>2:00 PM - 4:00 PM</span>
+                </div>
+                <h3 class="tex-lg mb-2 font-bold leading-tight text-slate-900 group-hover:text-primary transition-colors">Intro to AI Seminar</h3>
+                <div class="flex mb-4 items-center gap-2 text-slate-600">
+                    <span class="bg-white/50"><i class="fa-solid fa-location-dot"></i></span>
+                    <span class="truncate">Lecture Hall B</span>
+                </div>
+                <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+<div class="flex -space-x-2">
+<img alt="Attendee 1" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWVxsA_jeKxWGDbHAlUaUXpUsAOCjPAznj7tluNWW_aUexMNMPltikV8rXtPvx8dlaoFQ-_QmET4N_RA9wl4UYYFEQUtzSqXnIhM8mZpFtpKI0gl8ILLeoJEIvFsT-CdywKNqAB6_NPekhhzKNBqZkKvnKYooLstowOgBdT3ET3aX7zouj6JgFbu6s4I5Bna5NwGAO2S3GMh1IjEfSqBOna0rK09-HyvbwkB9zhy4Kg5aguVWZV-On3bgTl_14jnlppV4SvMying"/>
+<img alt="Attendee 2" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaULVUW9HIUG5Fcq4Rh9U0ceih2b3XAC0GPkfQBfOcU1PYSt36a4NN5yyZ_LUEMYJuS6a_RZwkVa7UbQdvLQfCQ1Cj4Qdff5WeoHrixmyG2P4JFhdUJAGQXe52zdKTAZ0gvDKzJoThfxHURaGBx68qdaSp39zWoCM529g8VwpcSjF5W3WF8z8rfqlTV8fIpRHnpp2Z164wkdTL2RrpkXWtj3IOrmj5YzSzNKrhY57t0J0L1Rrik5_o26t0ziWRMOIyZHM0axH7-Q"/>
+<img alt="Attendee 3" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ06nf5jM6efekJco4tuixZW0bdbU62C80y8ZCtGblLMEfjKWBdt2fVhaSpb6oHhgqQKj91omUSO9xJyCQNb9U0HsbWX_2rjauxzT0uFgNFxnyXPOj2EgFV7hCEjH9jXEYmC6qYGrkDRrR1GxHEF_YpGzt-GM_vv1JjyHacFoJeE3ybjmnngLvSaT2Xi4TAFlto5K-yH4esAP4tNY0IwniwjME8Bv-59bEwr2oq8ATf4pKmtIlVmGtVFLBLcX9lWGAWG2MzFqABA"/>
+</div>
+<span>+142 attending</span>
+            </div>
+            <div class="mt-auto flex items-centergap-3">
+                <button class="flex-1  items-center justify-center rounded-lg  text-primary border-primary border-2 hover:bg-blue-600 hover:text-white hover:transition-all ">RSVP Now</button>
+
+                <button class="flex size-9 items-center justify-center rounded-lg  text-primary bg-slate-100  text-slate-500 hover:bg-slate-200 transition-colors "><i class="fa-solid fa-share-nodes"></i></button>
+                
+            </div>
+            
+        </article>
+                <article class="event-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 border-slate-100"
+        data-title="Varsity Basketball Game"
+        data-date="Jan 25"
+        data-time="6:00 PM - 9:00 PM"
+        data-location="Sports Complex"
+        data-category="sports"
+        data-host="Athletics Department"
+        data-venue="Sports Complex Arena"
+        data-about="Cheer on our varsity basketball team as they compete in the championship game! Exciting gameplay and team spirit guaranteed."
+        data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuCVN5hlF2GG-VURDayoJzMJAkhuGkey1y0uN7LwOPS7K_3jj1Sm5l3-ZVv7dp7s31BaZQgPtgAMIgmX-4i_dtyAKh2-zUeCx8Mf7SMvWBQmHTD_XYRdgsLu_-ysmgCzvSPJoBwoBpcBc4MOkn0Ucx8BcJLSFbyhEErMuuuGbunPhI4-fw1TsWiqliskHYC7nKCHu6FP6rgEkF8O9KY2Y8dkChOXTUDNEMhVeFzg6sECxywA9pu3P-14KAqCBEAjbw2LSuBQraESQQ"
+        >
+            <div class="relative h-48 w-full overflow-hidden">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" aria-label="Abstract colorful light waves background representing technology" role="img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVN5hlF2GG-VURDayoJzMJAkhuGkey1y0uN7LwOPS7K_3jj1Sm5l3-ZVv7dp7s31BaZQgPtgAMIgmX-4i_dtyAKh2-zUeCx8Mf7SMvWBQmHTD_XYRdgsLu_-ysmgCzvSPJoBwoBpcBc4MOkn0Ucx8BcJLSFbyhEErMuuuGbunPhI4-fw1TsWiqliskHYC7nKCHu6FP6rgEkF8O9KY2Y8dkChOXTUDNEMhVeFzg6sECxywA9pu3P-14KAqCBEAjbw2LSuBQraESQQ');"></div>
+                <div class="absolute imset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute top-3 right-3 rounded-full bg-white/20 p-2 backdrop-blur-md transition-colors hover:bg-white/40 cursor-pointer">
+                   <i class="fa-regular fa-heart text-white"></i>
+                </div>
+                <span class="absolute left-3 top-3 rounded-lg bg-green-500 px-2 py-1 text-xs font-bold uppercase text-white shadow-sm">sports</span>
+                <div class="absolute bottom-3 left-3">
+                    <span class="bg-white/70 rounded-lg text-slate-800 font-bold text-xs shadow-sm uppercase px-2 py-1">JAN 25</span>
+                </div>
+            </div>
+            <div class="flex flex-1 flex-col p-4">
+                <div class="mb-2 flex items-center gap-2 text-xs font-medium text-slate-500">
+                    <span class="text-xs"><i class="fa-regular fa-clock"></i></span>
+                    <span>6:00 PM - 9:00 PM</span>
+                </div>
+                <h3 class="tex-lg mb-2 font-bold leading-tight text-slate-900 group-hover:text-primary transition-colors">Varsity Basketball Game</h3>
+                <div class="flex mb-4 items-center gap-2 text-slate-600">
+                    <span class="bg-white/50"><i class="fa-solid fa-location-dot"></i></span>
+                    <span class="truncate">Sports Complex</span>
+                </div>
+                <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+<div class="flex -space-x-2">
+<img alt="Attendee 1" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWVxsA_jeKxWGDbHAlUaUXpUsAOCjPAznj7tluNWW_aUexMNMPltikV8rXtPvx8dlaoFQ-_QmET4N_RA9wl4UYYFEQUtzSqXnIhM8mZpFtpKI0gl8ILLeoJEIvFsT-CdywKNqAB6_NPekhhzKNBqZkKvnKYooLstowOgBdT3ET3aX7zouj6JgFbu6s4I5Bna5NwGAO2S3GMh1IjEfSqBOna0rK09-HyvbwkB9zhy4Kg5aguVWZV-On3bgTl_14jnlppV4SvMying"/>
+<img alt="Attendee 2" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaULVUW9HIUG5Fcq4Rh9U0ceih2b3XAC0GPkfQBfOcU1PYSt36a4NN5yyZ_LUEMYJuS6a_RZwkVa7UbQdvLQfCQ1Cj4Qdff5WeoHrixmyG2P4JFhdUJAGQXe52zdKTAZ0gvDKzJoThfxHURaGBx68qdaSp39zWoCM529g8VwpcSjF5W3WF8z8rfqlTV8fIpRHnpp2Z164wkdTL2RrpkXWtj3IOrmj5YzSzNKrhY57t0J0L1Rrik5_o26t0ziWRMOIyZHM0axH7-Q"/>
+<img alt="Attendee 3" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ06nf5jM6efekJco4tuixZW0bdbU62C80y8ZCtGblLMEfjKWBdt2fVhaSpb6oHhgqQKj91omUSO9xJyCQNb9U0HsbWX_2rjauxzT0uFgNFxnyXPOj2EgFV7hCContinue12:30 PMEjH9jXEYmC6qYGrkDRrR1GxHEF_YpGzt-GM_vv1JjyHacFoJeE3ybjmnngLvSaT2Xi4TAFlto5K-yH4esAP4tNY0IwniwjME8Bv-59bEwr2oq8ATf4pKmtIlVmGtVFLBLcX9lWGAWG2MzFqABA"/>
+</div>
+<span>+89 attending</span>
+            </div>
+            <div class="mt-auto flex items-centergap-3">
+                <button class="flex-1  items-center justify-center rounded-lg  text-primary border-primary border-2 hover:bg-blue-600 hover:text-white hover:transition-all ">RSVP Now</button>
+            <button class="flex size-9 items-center justify-center rounded-lg  text-primary bg-slate-100  text-slate-500 hover:bg-slate-200 transition-colors "><i class="fa-solid fa-share-nodes"></i></button>
+            
+        </div>
+        
+    </article>
+            <article class="event-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 border-slate-100"
+    data-title="Community Art Workshop"
+    data-date="Jan 27"
+    data-time="10:00 AM - 1:00 PM"
+    data-location="Faculty of Arts"
+    data-category="arts"
+    data-host="Arts Department"
+    data-venue="Faculty of Arts Studio"
+    data-about="Express your creativity! Join our community art workshop with professional artists. All skill levels welcome."
+    data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuAAalzVlvfhMVHbPKUvCUoS5nOnQpfoca8oneJHXpb0ee2ab5LEBhSrI6yEqdsorNt0Ej61yQ6lwQUersvdVUfMMT1X7g_IAgXWEC3tEZCyaxhyyiQdQP-xZSUIfsiniIptw4nsvFFGEhHXa86xbIDEqM2328eTNkHM9c1BhN23Ic_qhYbfkUg1-e7gejfuUHfce7DEuzrKt1qe3RBwrEBZztN5bVD3lZsJx1BPt_Yd8rKL845kMnnQ1cbxlCEKoS6k1NToh8Ngeg"
+    >
+        <div class="relative h-48 w-full overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" aria-label="Abstract colorful light waves background representing technology" role="img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAalzVlvfhMVHbPKUvCUoS5nOnQpfoca8oneJHXpb0ee2ab5LEBhSrI6yEqdsorNt0Ej61yQ6lwQUersvdVUfMMT1X7g_IAgXWEC3tEZCyaxhyyiQdQP-xZSUIfsiniIptw4nsvFFGEhHXa86xbIDEqM2328eTNkHM9c1BhN23Ic_qhYbfkUg1-e7gejfuUHfce7DEuzrKt1qe3RBwrEBZztN5bVD3lZsJx1BPt_Yd8rKL845kMnnQ1cbxlCEKoS6k1NToh8Ngeg');"></div>
+            <div class="absolute imset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute top-3 right-3 rounded-full bg-white/20 p-2 backdrop-blur-md transition-colors hover:bg-white/40 cursor-pointer">
+               <i class="fa-regular fa-heart text-white"></i>
+            </div>
+            <span class="absolute left-3 top-3 rounded-lg bg-purple-500 px-2 py-1 text-xs font-bold uppercase text-white shadow-sm">ARTS</span>
+            <div class="absolute bottom-3 left-3">
+                <span class="bg-white/70 rounded-lg text-slate-800 font-bold text-xs shadow-sm uppercase px-2 py-1"> jan 27</span>
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col p-4">
+            <div class="mb-2 flex items-center gap-2 text-xs font-medium text-slate-500">
+                <span class="text-xs"><i class="fa-regular fa-clock"></i></span>
+                <span>10:00 AM - 1:00 PM</span>
+            </div>
+            <h3 class="tex-lg mb-2 font-bold leading-tight text-slate-900 group-hover:text-primary transition-colors">Community Art Workshop</h3>
+            <div class="flex mb-4 items-center gap-2 text-slate-600">
+                <span class="bg-white/50"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="truncate">Faculty of Arts</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+<div class="flex -space-x-2">
+<img alt="Attendee 1" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWVxsA_jeKxWGDbHAlUaUXpUsAOCjPAznj7tluNWW_aUexMNMPltikV8rXtPvx8dlaoFQ-_QmET4N_RA9wl4UYYFEQUtzSqXnIhM8mZpFtpKI0gl8ILLeoJEIvFsT-CdywKNqAB6_NPekhhzKNBqZkKvnKYooLstowOgBdT3ET3aX7zouj6JgFbu6s4I5Bna5NwGAO2S3GMh1IjEfSqBOna0rK09-HyvbwkB9zhy4Kg5aguVWZV-On3bgTl_14jnlppV4SvMying"/>
+<img alt="Attendee 2" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaULVUW9HIUG5Fcq4Rh9U0ceih2b3XAC0GPkfQBfOcU1PYSt36a4NN5yyZ_LUEMYJuS6a_RZwkVa7UbQdvLQfCQ1Cj4Qdff5WeoHrixmyG2P4JFhdUJAGQXe52zdKTAZ0gvDKzJoThfxHURaGBx68qdaSp39zWoCM529g8VwpcSjF5W3WF8z8rfqlTV8fIpRHnpp2Z164wkdTL2RrpkXWtj3IOrmj5YzSzNKrhY57t0J0L1Rrik5_o26t0ziWRMOIyZHM0axH7-Q"/>
+<img alt="Attendee 3" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ06nf5jM6efekJco4tuixZW0bdbU62C80y8ZCtGblLMEfjKWBdt2fVhaSpb6oHhgqQKj91omUSO9xJyCQNb9U0HsbWX_2rjauxzT0uFgNFxnyXPOj2EgFV7hCEjH9jXEYmC6qYGrkDRrR1GxHEF_YpGzt-GM_vv1JjyHacFoJeE3ybjmnngLvSaT2Xi4TAFlto5K-yH4esAP4tNY0IwniwjME8Bv-59bEwr2oq8ATf4pKmtIlVmGtVFLBLcX9lWGAWG2MzFqABA"/>
+</div>
+<span>+24 attending</span>
+            </div>
+            <div class="mt-auto flex items-centergap-3">
+                <button class="flex-1  items-center justify-center rounded-lg  text-primary border-primary border-2 hover:bg-blue-600 hover:text-white hover:transition-all ">RSVP Now</button>
+            <button class="flex size-9 items-center justify-center rounded-lg  text-primary bg-slate-100  text-slate-500 hover:bg-slate-200 transition-colors "><i class="fa-solid fa-share-nodes"></i></button>
+            
+        </div>
+        
+    </article>
+
+     <article class="event-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 border-slate-100"
+    data-title="Varsity Basketball Game"
+    data-date="Jan 25"
+    data-time="6:00 PM - 9:00 PM"
+    data-location="Sports Complex"
+    data-category="sports"
+    data-host="Athletics Department"
+    data-venue="Sports Complex Arena"
+    data-about="Cheer on our varsity basketball team as they compete in the championship game!"
+    data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuCVN5hlF2GG-VURDayoJzMJAkhuGkey1y0uN7LwOPS7K_3jj1Sm5l3-ZVv7dp7s31BaZQgPtgAMIgmX-4i_dtyAKh2-zUeCx8Mf7SMvWBQmHTD_XYRdgsLu_-ysmgCzvSPJoBwoBpcBc4MOkn0Ucx8BcJLSFbyhEErMuuuGbunPhI4-fw1TsWiqliskHYC7nKCHu6FP6rgEkF8O9KY2Y8dkChOXTUDNEMhVeFzg6sECxywA9pu3P-14KAqCBEAjbw2LSuBQraESQQ"
+    >
+        <div class="relative h-48 w-full overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" aria-label="Abstract colorful light waves background representing technology" role="img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVN5hlF2GG-VURDayoJzMJAkhuGkey1y0uN7LwOPS7K_3jj1Sm5l3-ZVv7dp7s31BaZQgPtgAMIgmX-4i_dtyAKh2-zUeCx8Mf7SMvWBQmHTD_XYRdgsLu_-ysmgCzvSPJoBwoBpcBc4MOkn0Ucx8BcJLSFbyhEErMuuuGbunPhI4-fw1TsWiqliskHYC7nKCHu6FP6rgEkF8O9KY2Y8dkChOXTUDNEMhVeFzg6sECxywA9pu3P-14KAqCBEAjbw2LSuBQraESQQ');"></div>
+            <div class="absolute imset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute top-3 right-3 rounded-full bg-white/20 p-2 backdrop-blur-md transition-colors hover:bg-white/40 cursor-pointer">
+               <i class="fa-regular fa-heart text-white"></i>
+            </div>
+            <span class="absolute left-3 top-3 rounded-lg bg-green-500 px-2 py-1 text-xs font-bold uppercase text-white shadow-sm">sports</span>
+            <div class="absolute bottom-3 left-3">
+                <span class="bg-white/70 rounded-lg text-slate-800 font-bold text-xs shadow-sm uppercase px-2 py-1">JAN 25</span>
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col p-4">
+            <div class="mb-2 flex items-center gap-2 text-xs font-medium text-slate-500">
+                <span class="text-xs"><i class="fa-regular fa-clock"></i></span>
+                <span>6:00 PM - 9:00 PM</span>
+            </div>
+            <h3 class="tex-lg mb-2 font-bold leading-tight text-slate-900 group-hover:text-primary transition-colors">Varsity Basketball Game</h3>
+            <div class="flex mb-4 items-center gap-2 text-slate-600">
+                <span class="bg-white/50"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="truncate">Sports Complex</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+<div class="flex -space-x-2">
+<img alt="Attendee 1" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWVxsA_jeKxWGDbHAlUaUXpUsAOCjPAznj7tluNWW_aUexMNMPltikV8rXtPvx8dlaoFQ-_QmET4N_RA9wl4UYYFEQUtzSqXnIhM8mZpFtpKI0gl8ILLeoJEIvFsT-CdywKNqAB6_NPekhhzKNBqZkKvnKYooLstowOgBdT3ET3aX7zouj6JgFbu6s4I5Bna5NwGAO2S3GMh1IjEfSqBOna0rK09-HyvbwkB9zhy4Kg5aguVWZV-On3bgTl_14jnlppV4SvMying"/>
+<img alt="Attendee 2" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaULVUW9HIUG5Fcq4Rh9U0ceih2b3XAC0GPkfQBfOcU1PYSt36a4NN5yyZ_LUEMYJuS6a_RZwkVa7UbQdvLQfCQ1Cj4Qdff5WeoHrixmyG2P4JFhdUJAGQXe52zdKTAZ0gvDKzJoThfxHURaGBx68qdaSp39zWoCM529g8VwpcSjF5W3WF8z8rfqlTV8fIpRHnpp2Z164wkdTL2RrpkXWtj3IOrmj5YzSzNKrhY57t0J0L1Rrik5_o26t0ziWRMOIyZHM0axH7-Q"/>
+<img alt="Attendee 3" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ06nf5jM6efekJco4tuixZW0bdbU62C80y8ZCtGblLMEfjKWBdt2fVhaSpb6oHhgqQKj91omUSO9xJyCQNb9U0HsbWX_2rjauxzT0uFgNFxnyXPOj2EgFV7hCEjH9jXEYmC6qYGrkDRrR1GxHEF_YpGzt-GM_vv1JjyHacFoJeE3ybjmnngLvSaT2Xi4TAFlto5K-yH4esAP4tNY0IwniwjME8Bv-59bEwr2oq8ATf4pKmtIlVmGtVFLBLcX9lWGAWG2MzFqABA"/>
+</div>
+<span>+89 attending</span>
+            </div>
+            <div class="mt-auto flex items-centergap-3">
+                <button class="flex-1  items-center justify-center rounded-lg  text-primary border-primary border-2 hover:bg-blue-600 hover:text-white hover:transition-all ">RSVP Now</button>
+            <button class="flex size-9 items-center justify-center rounded-lg  text-primary bg-slate-100  text-slate-500 hover:bg-slate-200 transition-colors "><i class="fa-solid fa-share-nodes"></i></button>
+            
+        </div>
+        
+    </article>
+            <article class="event-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 border-slate-100"
+    data-title="Physics Study Group"
+    data-date="Feb 12"
+    data-time="3:30 PM - 5:00 PM"
+    data-location="Library Room 304"
+    data-category="academic"
+    data-host="Physics Department"
+    data-venue="Library Room 304"
+    data-about="Join fellow physics students for collaborative study sessions. Perfect for exam preparation and homework help."
+    data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuA9v_XVm-Eqw0MMK3iir3Irq3lCpWBJbj3ROZyfsCapXsJ9xdMMTKBa-L9CL1MymznFQQDcV_zEbmyaOwtdoFGw3Q92H4ZRIM30z7M6EtGiFGBXnKpglzYp4r1zFJaG8FHbLxkhly8EXHKX2VpljiObMEgjF-LowrIJuDb-RxXTORl31iFkTPIiEEU4GvC9ir742R8XM_zCRpuwnK7OX7sFCKApo4r16uPaiTbQS-EG72zPiyU2BdDGhkPhGZKtNgdK0MPu4wzSYw"
+    >
+        <div class="relative h-48 w-full overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" aria-label="Abstract colorful light waves background representing technology" role="img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9v_XVm-Eqw0MMK3iir3Irq3lCpWBJbj3ROZyfsCapXsJ9xdMMTKBa-L9CL1MymznFQQDcV_zEbmyaOwtdoFGw3Q92H4ZRIM30z7M6EtGiFGBXnKpglzYp4r1zFJaG8FHbLxkhly8EXHKX2VpljiObMEgjF-LowrIJuDb-RxXTORl31iFkTPIiEEU4GvC9ir742R8XM_zCRpuwnK7OX7sFCKApo4r16uPaiTbQS-EG72zPiyU2BdDGhkPhGZKtNgdK0MPu4wzSYw');"></div>
+            <div class="absolute imset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute top-3 right-3 rounded-full bg-white/20 p-2 backdrop-blur-md transition-colors hover:bg-white/40 cursor-pointer">
+               <i class="fa-regular fa-heart text-white"></i>
+            </div>
+            <span class="absolute left-3 top-3 rounded-lg bg-blue-500 px-2 py-1 text-xs font-bold uppercase text-white shadow-sm">Academic</span>
+            <div class="absolute bottom-3 left-3">
+                <span class="bg-white/70 rounded-lg text-slate-800 font-bold text-xs shadow-sm uppercase px-2 py-1"> feb 12</span>
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col p-4">
+            <div class="mb-2 flex items-center gap-2 text-xs font-medium text-slate-500">
+                <span class="text-xs"><i class="fa-regular fa-clock"></i></span>
+                <span>3:30 PM - 5:00 PM</span>
+            </div>
+            <h3 class="tex-lg mb-2 font-bold leading-tight text-slate-900 group-hover:text-primary transition-colors">Physics Study Group</h3>
+            <div class="flex mb-4 items-center gap-2 text-slate-600">
+                <span class="bg-white/50"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="truncate">Library Room 304</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+<div class="flex -space-x-2">
+<img alt="Attendee 1" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWVxsA_jeKxWGDbHAlUaUXpUsAOCjPAznj7tluNWW_aUexMNMPltikV8rXtPvx8dlaoFQ-_QmET4N_RA9wl4UYYFEQUtzSqXnIhM8mZpFtpKI0gl8ILLeoJEIvFsT-CdywKNqAB6_NPekhhzKNBqZkKvnKYooLstowOgBdT3ET3aX7zouj6JgFbu6s4I5Bna5NwGAO2S3GMh1IjEfSqBOna0rK09-HyvbwkB9zhy4Kg5aguVWZV-On3bgTl_14jnlppV4SvMying"/>
+<img alt="Attendee 2" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaULVUW9HIUG5Fcq4Rh9U0ceih2b3XAC0GPkfQBfOcU1PYSt36a4NN5yyZ_LUEMYJuS6a_RZwkVa7UbQdvLQfCQ1Cj4Qdff5WeoHrixmyG2P4JFhdUJAGQXe52zdKTAZ0gvDKzJoThfxHURaGBx68qdaSp39zWoCM529g8VwpcSjF5W3WF8z8rfqlTV8fIpRHnpp2Z164wkdTL2RrpkXWtj3IOrmj5YzSzNKrhY57t0J0L1Rrik5_o26t0ziWRMOIyZHM0axH7-Q"/>
+<img alt="Attendee 3" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ06nf5jM6efekJco4tuixZW0bdbU62C80y8ZCtGblLMEfjKWBdt2fVhaSpb6oHhgqQKj91omUSO9xJyCQNb9U0HsbWX_2rjauxzT0uFgNFxnyXPOj2EgFV7hCEjH9jXEYmC6qYGrkDRrR1GxHEF_YpGzt-GM_vv1JjyHacFoJeE3ybjmnngLvSaT2Xi4TAFlto5K-yH4esAP4tNY0IwniwjME8Bv-59bEwr2oq8ATf4pKmtIlVmGtVFLBLcX9lWGAWG2MzFqABA"/>
+</div>
+<span>+10 attending</span>
+            </div>
+            <div class="mt-auto flex items-centergap-3">
+                <button class="flex-1  items-center justify-center rounded-lg  text-primary border-primary border-2 hover:bg-blue-600 hover:text-white hover:transition-all ">RSVP Now</button>
+            <button class="flex size-9 items-center justify-center rounded-lg  text-primary bg-slate-100  text-slate-500 hover:bg-slate-200 transition-colors "><i class="fa-solid fa-share-nodes"></i></button>
+            
+        </div>
+        
+    </article>
+    <article class="event-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 border-slate-100"
+    data-title="Revolution Rave 2026"
+    data-date="Feb 15"
+    data-time="4:30 PM - 7:00 PM"
+    data-location="Theology Field"
+    data-category="social"
+    data-host="Student Activities Board"
+    data-venue="Theology Field"
+    data-about="The ultimate student party of the year! Dance, music, and unforgettable memories. Don't miss out!"
+    data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuCIjpxK950SMHavGqjKJYsfPAFrzKztHOQ3h8iaMiAjt_7d1SsgxaaKAHsSYnht2BXzok94bzK5dmVObro6sGk2PWr_LyFqURisPA6i-DESdYYVl0zxVYlZtjgsV_w980xcONunZuzDc1uzzbgl8zsQGyxLI1HMhslq3CSQBN9_kW_WXO2G_Pon9kIff9HwCGiFkQYuDA0RUoSH5-AgIeYFtcvlnmDlT4EAxjR7waCLIgoRNnLhvOiEAlxrrHcqHKobEeyjuoFcqg"
+    >
+        <div class="relative h-48 w-full overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" aria-label="Abstract colorful light waves background representing technology" role="img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCIjpxK950SMHavGqjKJYsfPAFrzKztHOQ3h8iaMiAjt_7d1SsgxaaKAHsSYnht2BXzok94bzK5dmVObro6sGk2PWr_LyFqURisPA6i-DESdYYVl0zxVYlZtjgsV_w980xcONunZuzDc1uzzbgl8zsQGyxLI1HMhslq3CSQBN9_kW_WXO2G_Pon9kIff9HwCGiFkQYuDA0RUoSH5-AgIeYFtcvlnmDlT4EAxjR7waCLIgoRNnLhvOiEAlxrrHcqHKobEeyjuoFcqg');"></div>
+            <div class="absolute imset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute top-3 right-3 rounded-full bg-white/20 p-2 backdrop-blur-md transition-colors hover:bg-white/40 cursor-pointer">
+               <i class="fa-regular fa-heart text-white"></i>
+            </div>
+            <span class="absolute left-3 top-3 rounded-lg bg-purple-700 px-2 py-1 text-xs font-bold uppercase text-white shadow-sm">Social</span>
+            <div class="absolute bottom-3 left-3">
+                <span class="bg-white/70 rounded-lg text-slate-800 font-bold text-xs shadow-sm uppercase px-2 py-1"> feb 15</span>
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col p-4">
+            <div class="mb-2 flex items-center gap-2 textContinue12:33 PM-xs font-medium text-slate-500">
+<span class="text-xs"><i class="fa-regular fa-clock"></i></span>
+<span>4:30 PM - 7:00 PM</span>
+</div>
+<h3 class="tex-lg mb-2 font-bold leading-tight text-slate-900 group-hover:text-primary transition-colors">Revolution Rave 2026</h3>
+<div class="flex mb-4 items-center gap-2 text-slate-600">
+<span class="bg-white/50"><i class="fa-solid fa-location-dot"></i></span>
+<span class="truncate">Theology Field</span>
+</div>
+<div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+<div class="flex -space-x-2">
+<img alt="Attendee 1" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWVxsA_jeKxWGDbHAlUaUXpUsAOCjPAznj7tluNWW_aUexMNMPltikV8rXtPvx8dlaoFQ-_QmET4N_RA9wl4UYYFEQUtzSqXnIhM8mZpFtpKI0gl8ILLeoJEIvFsT-CdywKNqAB6_NPekhhzKNBqZkKvnKYooLstowOgBdT3ET3aX7zouj6JgFbu6s4I5Bna5NwGAO2S3GMh1IjEfSqBOna0rK09-HyvbwkB9zhy4Kg5aguVWZV-On3bgTl_14jnlppV4SvMying"/>
+<img alt="Attendee 2" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaULVUW9HIUG5Fcq4Rh9U0ceih2b3XAC0GPkfQBfOcU1PYSt36a4NN5yyZ_LUEMYJuS6a_RZwkVa7UbQdvLQfCQ1Cj4Qdff5WeoHrixmyG2P4JFhdUJAGQXe52zdKTAZ0gvDKzJoThfxHURaGBx68qdaSp39zWoCM529g8VwpcSjF5W3WF8z8rfqlTV8fIpRHnpp2Z164wkdTL2RrpkXWtj3IOrmj5YzSzNKrhY57t0J0L1Rrik5_o26t0ziWRMOIyZHM0axH7-Q"/>
+<img alt="Attendee 3" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ06nf5jM6efekJco4tuixZW0bdbU62C80y8ZCtGblLMEfjKWBdt2fVhaSpb6oHhgqQKj91omUSO9xJyCQNb9U0HsbWX_2rjauxzT0uFgNFxnyXPOj2EgFV7hCEjH9jXEYmC6qYGrkDRrR1GxHEF_YpGzt-GM_vv1JjyHacFoJeE3ybjmnngLvSaT2Xi4TAFlto5K-yH4esAP4tNY0IwniwjME8Bv-59bEwr2oq8ATf4pKmtIlVmGtVFLBLcX9lWGAWG2MzFqABA"/>
+</div>
+<span>+310 attending</span>
+            </div>
+            <div class="mt-auto flex items-centergap-3">
+                <button class="flex-1  items-center justify-center rounded-lg  text-primary border-primary border-2 hover:bg-blue-600 hover:text-white hover:transition-all ">RSVP Now</button>
+            <button class="flex size-9 items-center justify-center rounded-lg  text-primary bg-slate-100  text-slate-500 hover:bg-slate-200 transition-colors "><i class="fa-solid fa-share-nodes"></i></button>
+            
+        </div>
+        
+    </article>
+    <article class="event-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 border-slate-100"
+    data-title="Career Opportunities in Tech"
+    data-date="Feb 19"
+    data-time="1:30 PM - 5:00 PM"
+    data-location="Library Room 304"
+    data-category="academic"
+    data-host="Career Services"
+    data-venue="Library Room 304"
+    data-about="Learn about exciting career paths in technology. Network with industry professionals and explore internship opportunities."
+    data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuD5-B4NRKlPZMCBbjfwDVRKB7Zg5gLcwwXfSMkD55nuCG2_mcYjZ7pZY5QatT_voAw9q1_C6BEpV4y8mi_X55Hw1ZVon5LAY4OA-yWh-iK0prm85ah6gEE7oMNYdXndmHBYBFyPOKyfMH-TAcAi2UIOICvudTh_n3y53NE8VD_910DYc25JO8I9ozxGcyi-j1P8fBt5KvrnATeG6NcRlsDL4OZfL4YYRBZVCikaJsXcqJzGS6tYkprPKDV65QwJuwokCbbys59I-A"
+    >
+        <div class="relative h-48 w-full overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" aria-label="Abstract colorful light waves background representing technology" role="img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5-B4NRKlPZMCBbjfwDVRKB7Zg5gLcwwXfSMkD55nuCG2_mcYjZ7pZY5QatT_voAw9q1_C6BEpV4y8mi_X55Hw1ZVon5LAY4OA-yWh-iK0prm85ah6gEE7oMNYdXndmHBYBFyPOKyfMH-TAcAi2UIOICvudTh_n3y53NE8VD_910DYc25JO8I9ozxGcyi-j1P8fBt5KvrnATeG6NcRlsDL4OZfL4YYRBZVCikaJsXcqJzGS6tYkprPKDV65QwJuwokCbbys59I-A');"></div>
+            <div class="absolute imset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute top-3 right-3 rounded-full bg-white/20 p-2 backdrop-blur-md transition-colors hover:bg-white/40 cursor-pointer">
+               <i class="fa-regular fa-heart text-white"></i>
+            </div>
+            <span class="absolute left-3 top-3 rounded-lg bg-green-500 px-2 py-1 text-xs font-bold uppercase text-white shadow-sm">Career</span>
+            <div class="absolute bottom-3 left-3">
+                <span class="bg-white/70 rounded-lg text-slate-800 font-bold text-xs shadow-sm uppercase px-2 py-1"> feb 19</span>
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col p-4">
+            <div class="mb-2 flex items-center gap-2 text-xs font-medium text-slate-500">
+                <span class="text-xs"><i class="fa-regular fa-clock"></i></span>
+                <span>1:30 PM - 5:00 PM</span>
+            </div>
+            <h3 class="tex-lg mb-2 font-bold leading-tight text-slate-900 group-hover:text-primary transition-colors">Career Opportunities in Tech </h3>
+            <div class="flex mb-4 items-center gap-2 text-slate-600">
+                <span class="bg-white/50"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="truncate">Library Room 304</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+<div class="flex -space-x-2">
+<img alt="Attendee 1" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWVxsA_jeKxWGDbHAlUaUXpUsAOCjPAznj7tluNWW_aUexMNMPltikV8rXtPvx8dlaoFQ-_QmET4N_RA9wl4UYYFEQUtzSqXnIhM8mZpFtpKI0gl8ILLeoJEIvFsT-CdywKNqAB6_NPekhhzKNBqZkKvnKYooLstowOgBdT3ET3aX7zouj6JgFbu6s4I5Bna5NwGAO2S3GMh1IjEfSqBOna0rK09-HyvbwkB9zhy4Kg5aguVWZV-On3bgTl_14jnlppV4SvMying"/>
+<img alt="Attendee 2" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaULVUW9HIUG5Fcq4Rh9U0ceih2b3XAC0GPkfQBfOcU1PYSt36a4NN5yyZ_LUEMYJuS6a_RZwkVa7UbQdvLQfCQ1Cj4Qdff5WeoHrixmyG2P4JFhdUJAGQXe52zdKTAZ0gvDKzJoThfxHURaGBx68qdaSp39zWoCM529g8VwpcSjF5W3WF8z8rfqlTV8fIpRHnpp2Z164wkdTL2RrpkXWtj3IOrmj5YzSzNKrhY57t0J0L1Rrik5_o26t0ziWRMOIyZHM0axH7-Q"/>
+<img alt="Attendee 3" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ06nf5jM6efekJco4tuixZW0bdbU62C80y8ZCtGblLMEfjKWBdt2fVhaSpb6oHhgqQKj91omUSO9xJyCQNb9U0HsbWX_2rjauxzT0uFgNFxnyXPOj2EgFV7hCEjH9jXEYmC6qYGrkDRrR1GxHEF_YpGzt-GM_vv1JjyHacFoJeE3ybjmnngLvSaT2Xi4TAFlto5K-yH4esAP4tNY0IwniwjME8Bv-59bEwr2oq8ATf4pKmtIlVmGtVFLBLcX9lWGAWG2MzFqABA"/>
+</div>
+<span>+10 attending</span>
+            </div>
+            <div class="mt-auto flex items-centergap-3">
+                <button class="flex-1  items-center justify-center rounded-lg  text-primary border-primary border-2 hover:bg-blue-600 hover:text-white hover:transition-all ">RSVP Now</button>
+            <button class="flex size-9 items-center justify-center rounded-lg  text-primary bg-slate-100  text-slate-500 hover:bg-slate-200 transition-colors "><i class="fa-solid fa-share-nodes"></i></button>
+            
+        </div>
+        
+    </article>
+
+    <article class="event-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 border-slate-100"
+    data-title="Annual Robotics Seminar"
+    data-date="Jan 24"
+    data-time="2:00 PM - 5:00 PM"
+    data-location="Engineering Building"
+    data-category="academic"
+    data-host="Department of Robotics Engineering"
+    data-venue="Hall B, Department of Robotics"
+    data-about="Join us for an afternoon of innovation and technology! The Computer Science Society is proud to present the Annual Spring Robotics Seminar. This year, we are focusing on AI integration in autonomous systems."
+    data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuCwZkU2Q-pWLMgDfjpEKL54GuLFSpzmWfSpuW6p5lHUsmE9JZ6ZPwCfSEy0enFzIHRRjB1enuVAIh8CoDCja5upwMin6aXois3w96AjwZW_ifMDakKd3fDPwVSCRdY0hn4RC1rQWExx7OOIx9dNBsnCbCZqLtlXowDktyo-I-ZES6rVBsCN0wnTff9oTh5TrxzvCWlfFXIPtMmx3-lg7WQyj-UFcWx2BDadXx31Sb4yiUa8QdEGmigFnNHiJ_64KxhKoWjM_UnlTw"
+    >
+        <div class="relative h-48 w-full overflow-hidden">
+      <a href="event_details.html" class="cursor-pointer">
+              <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" aria-label="Abstract colorful light waves background representing technology" role="img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCwZkU2Q-pWLMgDfjpEKL54GuLFSpzmWfSpuW6p5lHUsmE9JZ6ZPwCfSEy0enFzIHRRjB1enuVAIh8CoDCja5upwMin6aXois3w96AjwZW_ifMDakKd3fDPwVSCRdY0hn4RC1rQWExx7OOIx9dNBsnCbCZqLtlXowDktyo-I-ZES6rVBsCN0wnTff9oTh5TrxzvCWlfFXIPtMmx3-lg7WQyj-UFcWx2BDadXx31Sb4yiUa8QdEGmigFnNHiJ_64KxhKoWjM_UnlTw');"></div>
+      </a>
+            <div class="absolute imset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute top-3 right-3 rounded-full bg-white/20 p-2 backdrop-blur-md transition-colors hover:bg-white/40 cursor-pointer">
+               <i class="fa-regular fa-heart text-white"></i>
+            </div>
+            <span class="absolute left-3 top-3 rounded-lg bg-blue-500 px-2 py-1 text-xs font-bold uppercase text-white shadow-sm">Academic</span>
+            <div class="absolute bottom-3 left-3">
+                <span class="bg-white/70 rounded-lg text-slate-800 font-bold text-xs shadow-sm uppercase px-2 py-1"> jan 24</span>
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col p-4">
+            <div class="mb-2 flex items-center gap-2 text-xs font-medium text-slate-500">
+                <span class="text-xs"><i class="fa-regular fa-clock"></i></span>
+                <span>2:00 PM - 5:00 PM</span>
+            </div>
+            <h3 class="tex-lg mb-2 font-bold leading-tight text-slate-900 group-hover:text-primary transition-colors">Annual Robotics Seminar</h3>
+            <div class="flex mb-4 items-center gap-2 text-slate-600">
+                <span class="bg-white/50"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="truncate">Hall B,Department of Robotics,Engineering Hall</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+<div class="flex -space-x-2">
+<img alt="Attendee 1" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWVxsA_jeKxWGDbHAlUaUXpUsAOCjPAznj7tluNWW_aUexMNMPltikV8rXtPvx8dlaoFQ-_QmET4N_RA9wl4UYYFEQUtzSqXnIhM8mZpFtpKI0gl8ILLeoJEIvFsT-CdywKNqAB6_NPekhhzKNBqZkKvnKYooLstowOgBdT3ET3aX7zouj6JgFbu6s4I5Bna5NwGAO2S3GMh1IjEfSqBOna0rK09-HyvbwkB9zhy4Kg5aguVWZV-On3bgTl_14jnlppV4SvMying"/>
+<img alt="Attendee 2" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaULVUW9HIUG5Fcq4Rh9U0ceih2b3XAC0GPkfQBfOcU1PYSt36a4NN5yyZ_LUEMYJuS6a_RZwkVa7UbQdvLQfCQ1Cj4Qdff5WeoHrixmyG2P4JFhdUJAGQXe52zdKTAZ0gvDKzJoThfxHURaGBx68qdaSp39zWoCM529g8VwpcSjF5W3WF8z8rfqlTV8fIpRHnpp2Z164wkdTL2RrpkXWtj3IOrmj5YzSzNKrhY57t0J0L1Rrik5_o26t0ziWRMOIyZHM0axH7-Q"/>
+<img alt="Attendee 3" class="size-6 rounded-full border-2 border-white dark:border-slate-800" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ06nf5jM6efekJco4tuixZW0bdbU62C80y8ZCtGblLMEfjKWBdt2fVhaSpb6oHhgqQKj91omUSO9xJyCQNb9U0HsbWX_2rjauxzT0uFgNFxnyXPOj2EgFV7hCEjH9jXEYmC6qYGrkDRrR1GxHEF_YpGzt-GM_vv1JjyHacFoJeE3ybjmnngLvSaT2Xi4TAFlto5K-yH4esAP4tNY0IwniwjME8Bv-59bEwr2oq8ATf4pKmtIlVmGtVFLBLcX9lWGAWG2MzFqABA"/>
+</div>
+<span>+139 attending</span>
+            </div>
+            <div class="mt-auto flex items-centergap-3">
+                <button class="flex-1  items-center justify-center rounded-lg  text-primary border-primary border-2 hover:bg-blue-600 hover:text-white hover:transition-all ">RSVP Now</button>
+            <button class="flex size-9 items-center justify-center rounded-lg  text-primary bg-slate-100  text-slate-500 hover:bg-slate-200 transition-colors "><i class="fa-solid fa-share-nodes"></i></button>
+            
+        </div>
+        
+    </article>
+
+</section>
+</div>
+</main>
+</div>         <!--the whole body-->
+
+<script>
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const spans = hamburgerBtn.querySelectorAll("span");
+
+hamburgerBtn.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.toggle("hidden");
+  hamburgerBtn.setAttribute("aria-expanded", !isOpen);
+
+  spans[0].classList.toggle("rotate-45");
+  spans[0].classList.toggle("translate-y-3");
+  spans[1].classList.toggle("opacity-0");
+  spans[2].classList.toggle("-rotate-45");
+  spans[2].classList.toggle("-translate-y-3");
+});
+
+// Category Filter Functionality
+const buttons = document.querySelectorAll('.filter-btn');
+const events = document.querySelectorAll('.event-card');
+
+function filterCategory(category) {
+    buttons.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white', 'shadow-md', 'shadow-primary/20');
+        btn.classList.add('bg-slate-100', 'text-slate-600');
+        if(btn.getAttribute('data-category') === category) {
+            btn.classList.add('bg-primary', 'text-white', 'shadow-md', 'shadow-primary/20');
+            btn.classList.remove('bg-slate-100', 'text-slate-600');
+        }
+    });
+
+    events.forEach(event => {
+        if(category === 'all-events' || event.getAttribute('data-category') === category) {
+            event.style.display = 'block';
+        } else {
+            event.style.display = 'none';
+        }
+    });
+}
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        filterCategory(category);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const openSection = params.get("open");
+
+    if (openSection === "academic") {
+        const academicBtn = document.getElementById("academic");
+        if (academicBtn) {
+            academicBtn.click();
+        }
+    }
+});
+
+// Event card click handler - Navigate to details page
+document.querySelectorAll(".event-card").forEach(card => {
+    card.addEventListener("click", () => {
+        const params = new URLSearchParams({
+            title: card.dataset.title,
+            host: card.dataset.host,
+            category: card.dataset.category,
+            date: card.dataset.date,
+            time: card.dataset.time,
+            location: card.dataset.location,
+            venue: card.dataset.venue,
+            about: card.dataset.about,
+            image: card.dataset.image
+        });
+
+        window.location.href = `event_details.html?${params.toString()}`;
+    });
+});
+
+// ========== SEARCH FUNCTIONALITY (WORKS WITH MULTIPLE INPUTS) ==========
+document.addEventListener('DOMContentLoaded', function() {
+    // Get ALL search inputs on the page (both header and toolbar)
+    const searchInputs = document.querySelectorAll('.search-input-header, .search-input-toolbar, input[placeholder*="Search"], input[placeholder*="keywords"], input#search-input');
+    
+    console.log('Found search inputs:', searchInputs.length); // Debug - should show 2
+    
+    // Add event listener to each search input
+    searchInputs.forEach(input => {
+        input.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            const eventCards = document.querySelectorAll('.event-card');
+            let visibleCount = 0;
+
+            // Sync all search inputs to have the same value
+            searchInputs.forEach(otherInput => {
+                if (otherInput !== input) {
+                    otherInput.value = e.target.value;
+                }
+            });
+
+            // Filter event cards
+            eventCards.forEach(card => {
+                const title = (card.dataset.title || '').toLowerCase();
+                const category = (card.dataset.category || '').toLowerCase();
+                const location = (card.dataset.location || '').toLowerCase();
+                const date = (card.dataset.date || '').toLowerCase();
+                const host = (card.dataset.host || '').toLowerCase();
+                const cardText = card.textContent.toLowerCase();
+                
+                const matches = searchTerm === '' ||
+                              title.includes(searchTerm) || 
+                              category.includes(searchTerm) || 
+                              location.includes(searchTerm) ||
+                              date.includes(searchTerm) ||
+                              host.includes(searchTerm) ||
+                              cardText.includes(searchTerm);
+
+                if (matches) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show "No results" message if needed
+            showNoResultsMessage(visibleCount);
+            
+            // Reset filter buttons when searching
+            if (searchTerm !== '') {
+                buttons.forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white', 'shadow-md', 'shadow-primary/20');
+                    btn.classList.add('bg-slate-100', 'text-slate-600');
+                });
+            }
+        });
+    });
+
+    // Function to show/hide "no results" message
+    function showNoResultsMessage(count) {
+        let noResultsMsg = document.getElementById('no-results-message');
+        
+        if (count === 0) {
+            if (!noResultsMsg) {
+                noResultsMsg = document.createElement('div');
+                noResultsMsg.id = 'no-results-message';
+                noResultsMsg.className = 'col-span-full text-center py-12';
+                noResultsMsg.innerHTML = `
+                    <div class="text-slate-400">
+                        <i class="fas fa-search text-4xl mb-4"></i>
+                        <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">No events found</p>
+                        <p class="text-sm">Try adjusting your search terms</p>
+                    </div>
+                `;
+                document.getElementById('events').appendChild(noResultsMsg);
+            }
+            noResultsMsg.style.display = 'block';
+        } else {
+            if (noResultsMsg) {
+                noResultsMsg.style.display = 'none';
+            }
+        }
+    }
+
+    // Clear all search inputs when filter button is clicked
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            searchInputs.forEach(input => {
+                input.value = '';
+            });
+            const noResultsMsg = document.getElementById('no-results-message');
+            if (noResultsMsg) {
+                noResultsMsg.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
