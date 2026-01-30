@@ -1,25 +1,29 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Event Details - CampusEvents</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
-<!-- Theme Configuration -->
-<script id="tailwind-config">
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Event Details - CampusEvents</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -35,86 +39,90 @@
                         "display": ["Plus Jakarta Sans", "sans-serif"],
                         "body": ["Noto Sans", "sans-serif"],
                     },
-                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
                 },
             },
         }
     </script>
-<style>
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
         .material-symbols-filled {
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-[#0d121c] dark:text-white font-display min-h-screen flex flex-col overflow-x-hidden transition-colors duration-200">
-     <header class="sticky flex w-full items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-background-light backdrop-blur-md px-8 py-3 lg:px-10">
-           
-     <div  class="flex items-center gap-8">  <!--name-->
-               <a href="#" class="flex items-center gap-2 text-slate-800 dark:text-white">  <!--name link-->
-               <div class="flex items-center bg-blue-700 text-white rounded-full h-12 w-12 justify-center text-2xl"> 
-                 <i class="fas fa-graduation-cap "></i>
-               </div>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#0d121c] dark:text-white font-display min-h-screen flex flex-col overflow-x-hidden transition-colors duration-200">
+    <header
+        class="sticky flex w-full items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-background-light backdrop-blur-md px-8 py-3 lg:px-10">
+
+        <div class="flex items-center gap-8"> <!--name-->
+            <a href="#" class="flex items-center gap-2 text-slate-800 dark:text-white"> <!--name link-->
+                <div class="flex items-center bg-blue-700 text-white rounded-full h-12 w-12 justify-center text-2xl">
+                    <i class="fas fa-graduation-cap "></i>
+                </div>
                 <p class="font-bold text-2xl">Campus Events</p>
             </a>
-     </div>
-
-     <div>   <!--search-->
-        <div class="hidden lg:block">
-    <label class="flex items-center gap-2 rounded-xl bg-slate-100 dark:bg-slate-800 px-4 py-2.5 transition-colors focus-within:ring-2 focus-within:ring-primary/50">
-        <div class="text-gray-700 text-sm">
-            <i class="fas fa-search"></i>
         </div>
-        <input type="text" class="w-64 border-none bg-transparent p-0 text-sm font-medium text-slate-800 placeholder-slate-500 focus:ring-0 dark:text-white dark:placeholder-slate-400 " placeholder="Search events, clubs....">
-    </label>
+
+        <div> <!--search-->
+            <div class="hidden lg:block">
+                <label
+                    class="flex items-center gap-2 rounded-xl bg-slate-100 dark:bg-slate-800 px-4 py-2.5 transition-colors focus-within:ring-2 focus-within:ring-primary/50">
+                    <div class="text-gray-700 text-sm">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text"
+                        class="w-64 border-none bg-transparent p-0 text-sm font-medium text-slate-800 placeholder-slate-500 focus:ring-0 dark:text-white dark:placeholder-slate-400 "
+                        placeholder="Search events, clubs....">
+                </label>
+            </div>
         </div>
-     </div>
 
-     <div>   <!--nav links-->
-        <nav class="md:flex items-center justify-center space-x-6 hidden ">
-            <a href="#" class="text-blue-500 text-sm">Home</a>
-            <a href="#" class="text-gray-800 text-sm hover:text-blue-500">My events</a>
-            <a href="#" class="text-gray-800 text-sm hover:text-blue-500">Saved</a>
-            <a href="#" class="text-gray-800 text-sm hover:text-blue-500">Map</a>
-        </nav>
+        <div> <!--nav links-->
+            <nav class="md:flex items-center justify-center space-x-6 hidden ">
+                <a href="#" class="text-blue-500 text-sm">Home</a>
+                <a href="#" class="text-gray-800 text-sm hover:text-blue-500">My events</a>
+                <a href="#" class="text-gray-800 text-sm hover:text-blue-500">Saved</a>
+                <a href="#" class="text-gray-800 text-sm hover:text-blue-500">Map</a>
+            </nav>
 
-     </div>
+        </div>
 
-     <div class="flex items-center justify-center space-x-4">  <!--Action buttons-->
-        <button class="flex items-center justify-center text-sm text-gray-500 rounded-full h-6 w-6 bg-transparent hover:bg-gray-300 relative">
-            <i class="fas fa-bell"></i>
-        </button>
+        <div class="flex items-center justify-center space-x-4"> <!--Action buttons-->
+            <button
+                class="flex items-center justify-center text-sm text-gray-500 rounded-full h-6 w-6 bg-transparent hover:bg-gray-300 relative">
+                <i class="fas fa-bell"></i>
+            </button>
 
-         <a href="login.html">
-            <button class="flex items-center justify-center text-sm text-gray-500 rounded-full h-6 w-6 bg-transparent hover:bg-gray-300 relative">
-            <i class="fas fa-user"></i>
-         </button> 
-         </a>
-   <button
-  id="hamburgerBtn"
-  class="relative z-50 flex md:hidden size-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700"
-  aria-expanded="false"
->
-  <i id="hamburgerIcon" class="fa-solid fa-bars text-lg transition-transform duration-300"></i>
-</button>
+            <a href="login.html">
+                <button
+                    class="flex items-center justify-center text-sm text-gray-500 rounded-full h-6 w-6 bg-transparent hover:bg-gray-300 relative">
+                    <i class="fas fa-user"></i>
+                </button>
+            </a>
+            <button id="hamburgerBtn"
+                class="relative z-50 flex md:hidden size-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700"
+                aria-expanded="false">
+                <i id="hamburgerIcon" class="fa-solid fa-bars text-lg transition-transform duration-300"></i>
+            </button>
 
 
-     </div>
-        </header>
-         <!-- Mobile Menu -->
-  <nav
-    id="mobileMenu"
-    class="mt-6 hidden rounded-lg bg-white p-4 shadow md:hidden"
-  >
-    <ul class="flex flex-col space-y-4 text-sm font-semibold ">
-      <li class="hover:text-xl hover:text-primary"><a href="#" class="block">Home</a></li>
-      <li class="hover:text-xl hover:text-primary"><a href="#" class="block">About</a></li>
-      <li class="hover:text-xl hover:text-primary"><a href="#" class="block">Services</a></li>
-      <li class="hover:text-xl hover:text-primary"><a href="#" class="block">Contact</a></li>
-    </ul>
-  </nav>
+        </div>
+    </header>
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu" class="mt-6 hidden rounded-lg bg-white p-4 shadow md:hidden">
+        <ul class="flex flex-col space-y-4 text-sm font-semibold ">
+            <li class="hover:text-xl hover:text-primary"><a href="#" class="block">Home</a></li>
+            <li class="hover:text-xl hover:text-primary"><a href="#" class="block">About</a></li>
+            <li class="hover:text-xl hover:text-primary"><a href="#" class="block">Services</a></li>
+            <li class="hover:text-xl hover:text-primary"><a href="#" class="block">Contact</a></li>
+        </ul>
+    </nav>
 
     <main class="layout-container h-full flex grow flex-col py-8 px-4 md:px-10 lg:px-40">
         <div class="layout-content-container mx-auto flex-1 w-full max-w-[1200px]">
@@ -123,58 +131,62 @@
                     <div class="flex items-center gap-2 text-sm text-[#47649e] dark:text-slate-400">
                         <a href="index.html#events" class="hover:underline">Events</a>
                         <i class="fa-solid fa-chevron-right"></i>
-                        <a href="index.html#academic" class="hover:underline"></a>
+                        <a href="index.html?{eventCategory}" class="hover:underline" id="breadcrumbCategory"></a>
                         <i class="fa-solid fa-chevron-right"></i>
-                        <a href="#" class="hover:underline"></a>
+                        <a href="index.html?{eventTitle}" id="breadcrumbTitle" class="hover:underline"></a>
                     </div>
-                    <div class="w-full relative group overflow-hidden rounded-2xl aspect-video sm:aspect-[2/1] bg-gray-200 ">
-                        <div class="absolute inset-0 bg-center bg0cover transition-transform duration-700 group-hover:scale-105" style="background-image: url('');" aria-label="" role="img"></div>
+                    <div
+                        class="w-full relative group overflow-hidden rounded-2xl aspect-video sm:aspect-[2/1] bg-gray-200 ">
+                        <div id="eventImage"
+                            class="absolute inset-0 bg-center bg0cover transition-transform duration-700 group-hover:scale-105"
+                            style="background-image: url('');" aria-label="" role="img"></div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
 
                     </div>
                     <div class="flex flex-col gap-4">
                         <div class="flex flex-wrap items-start justify-between gap-4">
                             <div>
-                                <h1 class="text-3xl md:text-4xl mb-2 font-black"></h1>
+                                <h1 id="eventTitle" class="text-3xl md:text-4xl mb-2 font-black"></h1>
                                 <p class="text-[#47649e] darl:text-slate-400 text-base md:text-lg font-normal"></p>
                             </div>
                             <div class="flex gap-4">
-                                <button class="sixe-10 rounded-full bg-[#f0f4f9] flex items-center justify-center text-[#47649e] hover:text-primary transition-colors text-2xl"><i class="fa-solid fa-share-nodes"></i></button>
-                                    <button class="sixe-10 rounded-full bg-[#f0f4f9] flex items-center justify-center text-[#47649e] hover:text-primary transition-colors text-2xl"><i class="fa-regular fa-heart"></i></button>
+                                <button
+                                    class="size-10 rounded-full bg-[#f0f4f9] flex items-center justify-center text-[#47649e] hover:text-primary transition-colors text-2xl"><i
+                                        class="fa-solid fa-share-nodes"></i></button>
+                                <button
+                                    class="size-10 rounded-full bg-[#f0f4f9] flex items-center justify-center text-[#47649e] hover:text-primary transition-colors text-2xl"><i
+                                        class="fa-regular fa-heart"></i></button>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-sm font-semibold"></span>
-                            <span class="px-3 py-1.5 rounded-lg bg-orange-100 text-orange-600 text-sm font-semibold"></span>
-                            <span class="py-1.5 px-3 rounded-lg bg-green-200 text-green-700 text-sm font-semibold"></span>
+                            <span id="eventCategory"
+                                class="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-sm font-semibold"></span>
                         </div>
                     </div>
                     <div class="h-px w-full bg-[#e6ebf4]"></div>
                     <div class="flex flex-col gap-4">
                         <h3 class="text-xl font-bold">About this event</h3>
                         <div class="text-[#47649e] dark:text-slate-300 text-base leading-relaxed space-y-4">
-                            <p></p>
-                            <p></p>
-
-                            <ul class="list-disc pl-5 space-y-1">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
+                            <p id="eventAbout"></p>
                         </div>
                     </div>
                     <!--organizer-->
                     <div class="lex flex-col gap-4 mt-4">
                         <h3 class="text-xl font-semibold">Organizer</h3>
-                        <div class="flex items-center justify-between p-4 border border-[#e6ebf4] bg-card-light shadow-sm">
+                        <div
+                            class="flex items-center justify-between p-4 border border-[#e6ebf4] bg-card-light shadow-sm">
                             <div class="flex items-center gap-4">
-                                <div class="size-12 rounded-full bg-cover bg-center ring-2 ring-primary/20" style="background-image: url('');" aria-label="" role="img"></div>
+                                <div class="size-12 rounded-full bg-cover bg-center ring-2 ring-primary/20"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDf7d0KWY1ZAnkjrFF1dPKvEEGbDrPtzLiGDdHrcZlq2_NHj-tQIoLCboHQuVNhcntYDJKafKQIsJwjgiRdn-o8gKUAZk5VAh7CrP4pXEeG6tKgi5YGXB4LVy9o392T_SGVRvwzo5FjmRyL7AH1SbJug3gY1q2bx0d1TjreYvRmXgAPckG82geWSqHQwmnKpokSfnfFi_lOb_SlT87IiVy62azHQZrWkpMf6bH9o6Q5ixcBiDGLhw0e9VlRpyi2-pRIKOGnqYiZ0g');"
+                                    aria-label="Organizer" role="img"></div>
                                 <div>
-                                    <p class="font-bold text-lg"></p>
+                                    <p id="eventHost" class="font-bold text-lg"></p>
                                     <p class="text-sm text-[#47649e]"></p>
                                 </div>
                             </div>
-                            <button class="px-4 py-2 rounded-lg border border-[#e6ebf4] font-semibold text-sm hover:bg-[#f8f9fc] transition-colors">View Profile</button>
+                            <button
+                                class="px-4 py-2 rounded-lg border border-[#e6ebf4] font-semibold text-sm hover:bg-[#f8f9fc] transition-colors">View
+                                Profile</button>
                         </div>
                     </div>
                 </div>
@@ -182,366 +194,67 @@
                 <div class="lg:col-span-4">
                     <div class="sticky top-24 flex flex-col gap-6">
                         <!--action card-->
-                        <div class="flex flex-col gap-6 p-6 rounded-2xl bg-card-light border border-[#e6ebf4] shadow-lg shadow-slate-200/50">
+                        <div
+                            class="flex flex-col gap-6 p-6 rounded-2xl bg-card-light border border-[#e6ebf4] shadow-lg shadow-slate-200/50">
                             <!--date and time-->
                             <div class="flex items-start gap-4">
-                                <div class="flex items-center justify-center rounded-lg bg-[#f0f4f9] text-primary shrink-0 size-12">
+                                <div
+                                    class="flex items-center justify-center rounded-lg bg-[#f0f4f9] text-primary shrink-0 size-12">
                                     <i class="fa-regular fa-calendar-days"></i>
                                 </div>
                                 <!--text-->
                                 <div>
-                                    <p class="font-bold text-lg"></p>
-                                    <p class="text-[#47649e]"></p>
-                                    <a  href="https://calendar.google.com/calendar/render?action=TEMPLATE
+                                    <p id="eventDate" class="font-bold text-lg"></p>
+                                    <p id="eventTime" class="text-[#47649e]"></p>
+                                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE
   &text=Intro+to+AI+Seminar
   &dates=20251024T140000/20251024T160000
   &details=Experience+a+one+day+of+AI+and+all+it+entails
-  &location=Lecture+Hall+B"
-  target="_blank" class="text-primary text-xs font-semibold mt-1 inline-block hover:underline">Add to Calender</a>
+  &location=Lecture+Hall+B" target="_blank"
+                                        class="text-primary text-xs font-semibold mt-1 inline-block hover:underline">Add
+                                        to Calender</a>
                                 </div>
                             </div>
                             <!--location row-->
                             <div class="flex items-start gap-4">
                                 <div class=" flex items-center justify-center rounded-lg bg-[#f0f4f9]
                                 shrink-0 size-12 text-primary">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <!--text-->
-                            <div>
-                                <!-- <p class="text-lg font-bold"></p>
-                                <p class=" font-[#47649e]"></p> -->
-                                <a href="#" class="text-primary text-xs font-semibold mt-1 inline-block hover:underline">Get Directions</a>
-                            </div>
-                            </div>
-                            <!--Attenedes avatar-->
-                            <div class="flex items-center justify-between pt-2">
-                                <div class="flex space-x-3">
-                                  <img alt="" class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark" src=""/>
-<img alt="" class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark" src=""/>
-<img alt="" class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark" src=""/>  
-<div class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-[10px] font-bold text-gray-600 dark:text-gray-300"></div>
-                                </div>
-                                <span class="text-sm font-medium text-{#47649e}"></span>
-                            </div>
-                            <!--RSVP-->
-                            <div class="flex flex-col mt-2 gap-3">
-                                <button class="w-full rounded-xl h-12 bg-primary text-white hover:bg-blue-700 font-bold shadow-md shadw-blue-500/20 transition-all active:scale-95 flex items-center justify-center gap-2">RSVP Now</button>
-                                <button class="w-full h-12 rounded-xl bg-transparent border border-[#e6ebf4] font-semibold hover:bg:[#f8f9fc] transition-all flex items-center justify-center gap-2">
-                                    <span><i class="fa-regular fa-star"></i></span> Interested
-                                </button>
-                            </div>
-                            <div class="h-px w-full bg-[#e6ebf4]"></div>
-                            <!--reminder toggle-->
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                   <span> <i class="fa-regular fa-bell"></i></span>
-                                   <span class="text-sm font-medium">Remind me 1h before</span>
-                                </div>
-                                <label for="" class="relative inline-flex items-center cursor-pointer">
-                                    <input class="sr-only peer" type="checkbox" value=""/>
-<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
-                                </label>
-                            </div>
-                        </div>
-                        <!--social icons-->
-                        <div class="p-6 rounded-2xl bg-card-light border border-[#e6ebf4] flex flex-col gap-4">
-                            <p class="font-bold text-sm text-[#47649e] uppercase">share with friends</p>
-                            <div class="flex items-center gap-4">
-                                <button aria-label="copy link" class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i class="fa-solid fa-link"></i></button>
-                                <button aria-label="share on X " class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i class="fa-brands fa-x-twitter"></i></button>
-                                <button aria-label="share on X " class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i class="fa-brands fa-instagram"></i></button>
-                                <button aria-label="share on X " class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i class="fa-regular fa-envelope"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        const hamburgerBtn = document.getElementById("hamburgerBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const spans = hamburgerBtn.querySelectorAll("span");
-
-    hamburgerBtn.addEventListener("click", () => {
-      const isOpen = mobileMenu.classList.toggle("hidden");
-
-      hamburgerBtn.setAttribute("aria-expanded", !isOpen);
-
-      // Animate to X
-      spans[0].classList.toggle("rotate-45");
-      spans[0].classList.toggle("translate-y-3");
-
-      spans[1].classList.toggle("opacity-0");
-
-      spans[2].classList.toggle("-rotate-45");
-      spans[2].classList.toggle("-translate-y-3");
-    });
-
-
-   
-const params = new URLSearchParams(window.location.search);
-
-document.getElementById("eventTitle").textContent =
-  params.get("title") || "Event Title";
-
-document.getElementById("eventHost").textContent =
-  params.get("host") || "";
-
-document.getElementById("eventCategory").textContent =
-  "#" + (params.get("category") || "Event");
-
-document.getElementById("eventDate").textContent =
-  params.get("date") || "";
-
-document.getElementById("eventTime").textContent =
-  params.get("time") || "";
-
-document.getElementById("eventLocation").textContent =
-  params.get("location") || "";
-
-document.getElementById("eventVenue").textContent =
-  params.get("venue") || "";
-
-document.getElementById("eventAbout").textContent =
-  params.get("about") || "";
-
-const image = params.get("image");
-if (image) {
-  document.getElementById("eventImage")
-    .style.backgroundImage = `url('${image}')`;
-}
-
-
-
-    </script>
-</body>
-</html>
-=======
-<!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Event Details - CampusEvents</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
-<!-- Theme Configuration -->
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#1f68f9",
-                        "background-light": "#f5f6f8",
-                        "background-dark": "#0f1623",
-                        "card-light": "#ffffff",
-                        "card-dark": "#1a2233",
-                    },
-                    fontFamily: {
-                        "display": ["Plus Jakarta Sans", "sans-serif"],
-                        "body": ["Noto Sans", "sans-serif"],
-                    },
-                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .material-symbols-filled {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark text-[#0d121c] dark:text-white font-display min-h-screen flex flex-col overflow-x-hidden transition-colors duration-200">
-     <header class="sticky flex w-full items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-background-light backdrop-blur-md px-8 py-3 lg:px-10">
-           
-     <div  class="flex items-center gap-8">  <!--name-->
-               <a href="#" class="flex items-center gap-2 text-slate-800 dark:text-white">  <!--name link-->
-               <div class="flex items-center bg-blue-700 text-white rounded-full h-12 w-12 justify-center text-2xl"> 
-                 <i class="fas fa-graduation-cap "></i>
-               </div>
-                <p class="font-bold text-2xl">Campus Events</p>
-            </a>
-     </div>
-
-     <div>   <!--search-->
-        <div class="hidden lg:block">
-    <label class="flex items-center gap-2 rounded-xl bg-slate-100 dark:bg-slate-800 px-4 py-2.5 transition-colors focus-within:ring-2 focus-within:ring-primary/50">
-        <div class="text-gray-700 text-sm">
-            <i class="fas fa-search"></i>
-        </div>
-        <input type="text" class="w-64 border-none bg-transparent p-0 text-sm font-medium text-slate-800 placeholder-slate-500 focus:ring-0 dark:text-white dark:placeholder-slate-400 " placeholder="Search events, clubs....">
-    </label>
-        </div>
-     </div>
-
-     <div>   <!--nav links-->
-        <nav class="md:flex items-center justify-center space-x-6 hidden ">
-            <a href="#" class="text-blue-500 text-sm">Home</a>
-            <a href="#" class="text-gray-800 text-sm hover:text-blue-500">My events</a>
-            <a href="#" class="text-gray-800 text-sm hover:text-blue-500">Saved</a>
-            <a href="#" class="text-gray-800 text-sm hover:text-blue-500">Map</a>
-        </nav>
-
-     </div>
-
-     <div class="flex items-center justify-center space-x-4">  <!--Action buttons-->
-        <button class="flex items-center justify-center text-sm text-gray-500 rounded-full h-6 w-6 bg-transparent hover:bg-gray-300 relative">
-            <i class="fas fa-bell"></i>
-        </button>
-
-         <a href="login.html">
-            <button class="flex items-center justify-center text-sm text-gray-500 rounded-full h-6 w-6 bg-transparent hover:bg-gray-300 relative">
-            <i class="fas fa-user"></i>
-         </button> 
-         </a>
-   <button
-  id="hamburgerBtn"
-  class="relative z-50 flex md:hidden size-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700"
-  aria-expanded="false"
->
-  <i id="hamburgerIcon" class="fa-solid fa-bars text-lg transition-transform duration-300"></i>
-</button>
-
-
-     </div>
-        </header>
-         <!-- Mobile Menu -->
-  <nav
-    id="mobileMenu"
-    class="mt-6 hidden rounded-lg bg-white p-4 shadow md:hidden"
-  >
-    <ul class="flex flex-col space-y-4 text-sm font-semibold ">
-      <li class="hover:text-xl hover:text-primary"><a href="#" class="block">Home</a></li>
-      <li class="hover:text-xl hover:text-primary"><a href="#" class="block">About</a></li>
-      <li class="hover:text-xl hover:text-primary"><a href="#" class="block">Services</a></li>
-      <li class="hover:text-xl hover:text-primary"><a href="#" class="block">Contact</a></li>
-    </ul>
-  </nav>
-
-    <main class="layout-container h-full flex grow flex-col py-8 px-4 md:px-10 lg:px-40">
-        <div class="layout-content-container mx-auto flex-1 w-full max-w-[1200px]">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div class="lg:col-span-8 flex flex-col gap-6">
-                    <div class="flex items-center gap-2 text-sm text-[#47649e] dark:text-slate-400">
-                        <a href="index.html#events" class="hover:underline">Events</a>
-                        <i class="fa-solid fa-chevron-right"></i>
-                        <a href="index.html#academic" class="hover:underline">Academic</a>
-                        <i class="fa-solid fa-chevron-right"></i>
-                        <a href="#" class="hover:underline">Robotics Seminar</a>
-                    </div>
-                    <div class="w-full relative group overflow-hidden rounded-2xl aspect-video sm:aspect-[2/1] bg-gray-200 ">
-                        <div class="absolute inset-0 bg-center bg0cover transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCwZkU2Q-pWLMgDfjpEKL54GuLFSpzmWfSpuW6p5lHUsmE9JZ6ZPwCfSEy0enFzIHRRjB1enuVAIh8CoDCja5upwMin6aXois3w96AjwZW_ifMDakKd3fDPwVSCRdY0hn4RC1rQWExx7OOIx9dNBsnCbCZqLtlXowDktyo-I-ZES6rVBsCN0wnTff9oTh5TrxzvCWlfFXIPtMmx3-lg7WQyj-UFcWx2BDadXx31Sb4yiUa8QdEGmigFnNHiJ_64KxhKoWjM_UnlTw');" aria-label="Students working robotics in a lab " role="img"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        <div class="flex flex-wrap items-start justify-between gap-4">
-                            <div>
-                                <h1 class="text-3xl md:text-4xl mb-2 font-black">Annual Robotics Seminar</h1>
-                                <p class="text-[#47649e] darl:text-slate-400 text-base md:text-lg font-normal">Hosted by the Department of Robotics Engineering</p>
-                            </div>
-                            <div class="flex gap-4">
-                                <button class="sixe-10 rounded-full bg-[#f0f4f9] flex items-center justify-center text-[#47649e] hover:text-primary transition-colors text-2xl"><i class="fa-solid fa-share-nodes"></i></button>
-                                    <button class="sixe-10 rounded-full bg-[#f0f4f9] flex items-center justify-center text-[#47649e] hover:text-primary transition-colors text-2xl"><i class="fa-regular fa-heart"></i></button>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-sm font-semibold">#Academics</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-orange-100 text-orange-600 text-sm font-semibold">#Robotics</span>
-                            <span class="py-1.5 px-3 rounded-lg bg-green-200 text-green-700 text-sm font-semibold">#Networking</span>
-                        </div>
-                    </div>
-                    <div class="h-px w-full bg-[#e6ebf4]"></div>
-                    <div class="flex flex-col gap-4">
-                        <h3 class="text-xl font-bold">About this event</h3>
-                        <div class="text-[#47649e] dark:text-slate-300 text-base leading-relaxed space-y-4">
-                            <p>   Join us for an afternoon of innovation and technology! The Computer Science Society is proud to present the Annual Spring Robotics Seminar. This year, we are focusing on AI integration in autonomous systems.</p>
-                            <p>      We will have guest speakers from leading tech companies, live demonstrations of student projects, and a networking session with alumni. Whether you are a seasoned coder or just curious about robotics, this event is for you.</p>
-
-                            <ul class="list-disc pl-5 space-y-1">
-                                <li>Keynote Speech by Dr.Femi Steve</li>
-                                <li>Interactive Workshop</li>
-                                <li>Free Tools and Equipment</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--organizer-->
-                    <div class="lex flex-col gap-4 mt-4">
-                        <h3 class="text-xl font-semibold">Organizer</h3>
-                        <div class="flex items-center justify-between p-4 border border-[#e6ebf4] bg-card-light shadow-sm">
-                            <div class="flex items-center gap-4">
-                                <div class="size-12 rounded-full bg-cover bg-center ring-2 ring-primary/20" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0R8HUoih3_D4pQxxSSS6QxRMJ7-7LQZtj3idEzvcT1vl6tZdYvNa0dwspbJ37_fYH3X03YswOfcklJqF2s5GakK6gW8cUo0VR1umBw-RhO6oHZWVXEIS6XCkNGib7Tx0r6DhB9_UduFGWJ5eZQtTyXyui4BZ2iDhJNt5Pu1gFqheXe3FAiXkx0XGvPbVgIMiuZG7PDQ5yLPmS6rUBv0eOT3ZgPEMolQ14TO8qjMLxarjPqn6m0hD_Du7_GpLmr7t5_zGLgcHCow');" aria-label="Organizer logo" role="img"></div>
-                                <div>
-                                    <p class="font-bold text-lg">Department of Robotics Engineering</p>
-                                    <p class="text-sm text-[#47649e]">253 followers</p>
-                                </div>
-                            </div>
-                            <button class="px-4 py-2 rounded-lg border border-[#e6ebf4] font-semibold text-sm hover:bg-[#f8f9fc] transition-colors">View Profile</button>
-                        </div>
-                    </div>
-                </div>
-                <!--right column-->
-                <div class="lg:col-span-4">
-                    <div class="sticky top-24 flex flex-col gap-6">
-                        <!--action card-->
-                        <div class="flex flex-col gap-6 p-6 rounded-2xl bg-card-light border border-[#e6ebf4] shadow-lg shadow-slate-200/50">
-                            <!--date and time-->
-                            <div class="flex items-start gap-4">
-                                <div class="flex items-center justify-center rounded-lg bg-[#f0f4f9] text-primary shrink-0 size-12">
-                                    <i class="fa-regular fa-calendar-days"></i>
+                                    <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <!--text-->
                                 <div>
-                                    <p class="font-bold text-lg">Saturday,January 24</p>
-                                    <p class="text-[#47649e]">2:00 PM - 5:00 PM</p>
-                                    <a href="#" class="text-primary text-xs font-semibold mt-1 inline-block hover:underline">Add to Calender</a>
+                                    <p id="eventLocation" class="text-lg font-bold"></p>
+                                    <p id="eventVenue" class=" font-[#47649e]"></p>
+                                    <a href="#"
+                                        class="text-primary text-xs font-semibold mt-1 inline-block hover:underline">Get
+                                        Directions</a>
                                 </div>
-                            </div>
-                            <!--location row-->
-                            <div class="flex items-start gap-4">
-                                <div class=" flex items-center justify-center rounded-lg bg-[#f0f4f9]
-                                shrink-0 size-12 text-primary">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <!--text-->
-                            <div>
-                                <p class="text-lg font-bold">Engineering Building</p>
-                                <p class=" font-[#47649e]"> Hall B, Department of Robotics</p>
-                                <a href="#" class="text-primary text-xs font-semibold mt-1 inline-block hover:underline">Get Directions</a>
-                            </div>
                             </div>
                             <!--Attenedes avatar-->
                             <div class="flex items-center justify-between pt-2">
                                 <div class="flex space-x-3">
-                                  <img alt="Attendee 1" class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeFgj2Cs66gxNMLTEiIK6IqpqqLI78eUNWYFS9cmKdTSoK3jEywTGe3vD-wHBX8kGP4M9X9QPId5g0RzB5-V5upRdeY-LhBX_XNm1-z3euvr59DxoV4Tgau3BFvaLd8rXq756qu1LjY6aJ0-6_G8E6DdJfjG7wjjInxtAHsVUTyXc1yDaZGN1T9BQS__NxQiajjaiySKRHFPvYqyC7NiVGVgdjXreTgBnJsOjqahQoa3xrTw-fNGZF7YB61cHglrf6UJuW7czG1Q"/>
-<img alt="Attendee 2" class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRI064FYXoMY_WFW8EAffodV4kAeqXDUzQzwiCpKhgYi4ghFdLXdVKexwypWZ_RPJEnFkdMzcorHPq3BVkb1wQtquq0AmnQ_vlqPq7cLs8rGjpOxpJdghbBGJtxxHqW8E9fJZ842pONDNvTlpv335IaF6RrqC7CYSknsMQ0_FlQnPiI8nwsL3AZwUSjXTA6aSFkU2rNUyM-zKZDOlXU82zaDvwfQ7AzzrCJuYhzVhbfOy79i_V_DDPjwtcEvPtSIbHZN2wnlWMVg"/>
-<img alt="Attendee 3" class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaK9XJJvf9YJV4h-rRtkVa94kB5KyS3rl_bEk44o2EC7O-GxcVOgXzTLEPIpBmwREGNJaYYllVjFN3k84U5oSP-l5zMkcxTOUx1yGbg-XYxCrswIE8zzpPc80MX3gWaddmXyBIjlDz6SBMIF4zTsX5qlUKl1dQW3RRPzatY9KG34LZ32XT4BtASr_Y3__gtXZanKb6A4nS_6_Wu3Z4odQV24l_rCKDIhlkXWo75fJvEV_Wu_PymPtpv8OKvUfEOLHpeNP-PwDFVw"/>  
-<div class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-[10px] font-bold text-gray-600 dark:text-gray-300">+139</div>
+                                    <img alt="Attendee 1"
+                                        class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWVxsA_jeKxWGDbHAlUaUXpUsAOCjPAznj7tluNWW_aUexMNMPltikV8rXtPvx8dlaoFQ-_QmET4N_RA9wl4UYYFEQUtzSqXnIhM8mZpFtpKI0gl8ILLeoJEIvFsT-CdywKNqAB6_NPekhhzKNBqZkKvnKYooLstowOgBdT3ET3aX7zouj6JgFbu6s4I5Bna5NwGAO2S3GMh1IjEfSqBOna0rK09-HyvbwkB9zhy4Kg5aguVWZV-On3bgTl_14jnlppV4SvMying" />
+                                    <img alt="Attendee 2"
+                                        class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaULVUW9HIUG5Fcq4Rh9U0ceih2b3XAC0GPkfQBfOcU1PYSt36a4NN5yyZ_LUEMYJuS6a_RZwkVa7UbQdvLQfCQ1Cj4Qdff5WeoHrixmyG2P4JFhdUJAGQXe52zdKTAZ0gvDKzJoThfxHURaGBx68qdaSp39zWoCM529g8VwpcSjF5W3WF8z8rfqlTV8fIpRHnpp2Z164wkdTL2RrpkXWtj3IOrmj5YzSzNKrhY57t0J0L1Rrik5_o26t0ziWRMOIyZHM0axH7-Q" />
+                                    <img alt="Attendee 3"
+                                        class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ06nf5jM6efekJco4tuixZW0bdbU62C80y8ZCtGblLMEfjKWBdt2fVhaSpb6oHhgqQKj91omUSO9xJyCQNb9U0HsbWX_2rjauxzT0uFgNFxnyXPOj2EgFV7hCEjH9jXEYmC6qYGrkDRrR1GxHEF_YpGzt-GM_vv1JjyHacFoJeE3ybjmnngLvSaT2Xi4TAFlto5K-yH4esAP4tNY0IwniwjME8Bv-59bEwr2oq8ATf4pKmtIlVmGtVFLBLcX9lWGAWG2MzFqABA" />
+                                    <div
+                                        class="w-8 h-8 rounded-full border-2 border-white dark:border-card-dark bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-[10px] font-bold text-gray-600 dark:text-gray-300">
+                                        +42</div>
                                 </div>
-                                <span class="text-sm font-medium text-{#47649e}">142 attending</span>
                             </div>
+                            <!--Attenedes avatar (Removed empty section)-->
                             <!--RSVP-->
                             <div class="flex flex-col mt-2 gap-3">
-                                <button class="w-full rounded-xl h-12 bg-primary text-white hover:bg-blue-700 font-bold shadow-md shadw-blue-500/20 transition-all active:scale-95 flex items-center justify-center gap-2">RSVP Now</button>
-                                <button class="w-full h-12 rounded-xl bg-transparent border border-[#e6ebf4] font-semibold hover:bg:[#f8f9fc] transition-all flex items-center justify-center gap-2">
+                                <button
+                                    class="w-full rounded-xl h-12 bg-primary text-white hover:bg-blue-700 font-bold shadow-md shadw-blue-500/20 transition-all active:scale-95 flex items-center justify-center gap-2">RSVP
+                                    Now</button>
+                                <button
+                                    class="w-full h-12 rounded-xl bg-transparent border border-[#e6ebf4] font-semibold hover:bg:[#f8f9fc] transition-all flex items-center justify-center gap-2">
                                     <span><i class="fa-regular fa-star"></i></span> Interested
                                 </button>
                             </div>
@@ -549,12 +262,14 @@ if (image) {
                             <!--reminder toggle-->
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-2">
-                                   <span> <i class="fa-regular fa-bell"></i></span>
-                                   <span class="text-sm font-medium">Remind me 1h before</span>
+                                    <span> <i class="fa-regular fa-bell"></i></span>
+                                    <span class="text-sm font-medium">Remind me 1h before</span>
                                 </div>
                                 <label for="" class="relative inline-flex items-center cursor-pointer">
-                                    <input class="sr-only peer" type="checkbox" value=""/>
-<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                                    <input class="sr-only peer" type="checkbox" value="" />
+                                    <div
+                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary">
+                                    </div>
                                 </label>
                             </div>
                         </div>
@@ -562,10 +277,18 @@ if (image) {
                         <div class="p-6 rounded-2xl bg-card-light border border-[#e6ebf4] flex flex-col gap-4">
                             <p class="font-bold text-sm text-[#47649e] uppercase">share with friends</p>
                             <div class="flex items-center gap-4">
-                                <button aria-label="copy link" class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i class="fa-solid fa-link"></i></button>
-                                <button aria-label="share on X " class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i class="fa-brands fa-x-twitter"></i></button>
-                                <button aria-label="share on X " class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i class="fa-brands fa-instagram"></i></button>
-                                <button aria-label="share on X " class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i class="fa-regular fa-envelope"></i></button>
+                                <button aria-label="copy link"
+                                    class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i
+                                        class="fa-solid fa-link"></i></button>
+                                <button aria-label="share on X "
+                                    class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i
+                                        class="fa-brands fa-x-twitter"></i></button>
+                                <button aria-label="share on X "
+                                    class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i
+                                        class="fa-brands fa-instagram"></i></button>
+                                <button aria-label="share on X "
+                                    class="size-10 rounded-full bg-[#e6ebf4] flex items-center justify-center hover:bg-primary hover:text-white transition-all group"><i
+                                        class="fa-regular fa-envelope"></i></button>
                             </div>
                         </div>
                     </div>
@@ -576,25 +299,77 @@ if (image) {
 
     <script>
         const hamburgerBtn = document.getElementById("hamburgerBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const spans = hamburgerBtn.querySelectorAll("span");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const spans = hamburgerBtn.querySelectorAll("span");
 
-    hamburgerBtn.addEventListener("click", () => {
-      const isOpen = mobileMenu.classList.toggle("hidden");
+        hamburgerBtn.addEventListener("click", () => {
+            const isOpen = mobileMenu.classList.toggle("hidden");
 
-      hamburgerBtn.setAttribute("aria-expanded", !isOpen);
+            hamburgerBtn.setAttribute("aria-expanded", !isOpen);
 
-      // Animate to X
-      spans[0].classList.toggle("rotate-45");
-      spans[0].classList.toggle("translate-y-3");
+            // Animate to X
+            spans[0].classList.toggle("rotate-45");
+            spans[0].classList.toggle("translate-y-3");
 
-      spans[1].classList.toggle("opacity-0");
+            spans[1].classList.toggle("opacity-0");
 
-      spans[2].classList.toggle("-rotate-45");
-      spans[2].classList.toggle("-translate-y-3");
-    });
+            spans[2].classList.toggle("-rotate-45");
+            spans[2].classList.toggle("-translate-y-3");
+        });
+
+
+
+        const params = new URLSearchParams(window.location.search);
+
+        document.getElementById("eventTitle").textContent =
+            params.get("title") || "Event Title";
+
+        document.getElementById("eventHost").textContent =
+            params.get("host") || "";
+
+        document.getElementById("eventCategory").textContent =
+            "#" + (params.get("category") || "Event");
+
+        document.getElementById("eventDate").textContent =
+            params.get("date") || "";
+
+        document.getElementById("eventTime").textContent =
+            params.get("time") || "";
+
+        document.getElementById("eventLocation").textContent =
+            params.get("location") || "";
+
+        document.getElementById("eventVenue").textContent =
+            params.get("venue") || "";
+
+        document.getElementById("eventAbout").textContent =
+            params.get("about") || "";
+
+        const image = params.get("image");
+        if (image) {
+            document.getElementById("eventImage")
+                .style.backgroundImage = `url('${image}')`;
+        }
+
+        // Breadcrumb Logic
+        const category = params.get("category") || "Event";
+        const title = params.get("title") || "Event Detail";
+
+        const breadcrumbCategory = document.getElementById("breadcrumbCategory");
+        const breadcrumbTitle = document.getElementById("breadcrumbTitle");
+
+        if (breadcrumbCategory) {
+            breadcrumbCategory.textContent = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize
+            breadcrumbCategory.href = `index.html?open=${category.toLowerCase()}`;
+        }
+
+        if (breadcrumbTitle) {
+            breadcrumbTitle.textContent = title;
+        }
+
 
 
     </script>
 </body>
->>>>>>> 9ee020c1ea02c2bb39b1a08a1964c863f1f306a1
+
+</html>
